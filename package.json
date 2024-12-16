@@ -1,0 +1,14 @@
+{
+  "dependencies": {},
+  "devDependencies": {
+    "tailwindcss": "^3.4.15",
+    "bun": "latest",
+    "@prettier/plugin-php": "^0.22.2",
+    "prettier": "^3.4.1"
+  },
+  "scripts": {
+    "css:watch": "bunx tailwindcss -i ./assets/base.css -o ./root/styles.css --watch",
+    "css:build": "bunx tailwindcss -i ./assets/base.css -o ./root/styles.css",
+    "format": "bunx prettier -c -w --require-pragma --use-tabs ."
+  }
+}
