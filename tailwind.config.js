@@ -9,8 +9,8 @@ module.exports = {
         extend: {
             colors: {
                 dthb: {
-                    1: "#b3b43e",
-                    2: "#d7d6d5",
+                    1: "#0085CA",
+                    2: "#66b6df",
                     3: "#339db4",
                 },
             },
