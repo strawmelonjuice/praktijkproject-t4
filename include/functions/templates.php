@@ -47,7 +47,7 @@ function headerTemplate($title, $scripts = [])
 function footerTemplate()
 {
     echo <<<EOT
-<footer class="bg-dthb-1 text-dthb-2 text-center p-2 absolute bottom-0 w-full">	
+<footer class="bg-dthb-1 text-dthb-2 text-center p-2 fixed bottom-0 w-full">	
     <p>&copy; 2025 KW1C Horeca</p>
 </footer>
 </body>
