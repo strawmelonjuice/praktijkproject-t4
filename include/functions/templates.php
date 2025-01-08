@@ -33,7 +33,7 @@ function headerTemplate($title, $scripts = [])
                 <img src="/logo.png" class="max-w-[8vw] max-h-10 inline-block p-1" />
                 <span class="w-40 inline">KW1C Horeca</span>
             </div> <?php navLink(name: "Home", url: "/");
-                    navLink(name: "Reserveringen $lock", url: "/inside");
+                    navLink(name: "Reserveringen $lock", url: "/home");
                     if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] && isset($_SESSION["studentNumber"])) {
                         navLink(name: "Uitloggen", url: "/logout.php");
                     }

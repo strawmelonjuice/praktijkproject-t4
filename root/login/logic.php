@@ -12,7 +12,7 @@ if ($account["found"]) {
         // correct password
         $_SESSION["studentNumber"] = $account["student_nr"];
         $_SESSION["loggedIn"] = true;
-        header("location: /inside");
+        header("location: /home");
         exit();
     } else {
         header("location: /login#incorrect_password");
