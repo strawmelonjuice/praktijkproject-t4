@@ -19,7 +19,7 @@ headerTemplate("Log in", ["/login/handling.js"]);
 			</label>
 
 		</div>
-		<button class="grid content-center place-items-center p-4 py-2 px-4 w-full hover:bg-sky-900 text-black rounded-lg border-amber-600 border-opacity-100 ring-rose-300 dark:text-orange-200 dark:bg-yellow-700 focus:ring-2 focus:ring-rose-500 focus:ring-opacity-50 focus:outline-none text-brown-800  bg-sky-600" id="submitbutton" type="submit">
+		<button class="grid content-center place-items-center p-4 py-2 px-4 w-full hover:bg-sky-900 text-black rounded-lg border-amber-600 border-opacity-100 ring-rose-300  focus:ring-2 focus:ring-rose-500 focus:ring-opacity-50 focus:outline-none text-brown-800  bg-sky-600" id="submitbutton" type="submit">
 			Log in
 		</button>
 
