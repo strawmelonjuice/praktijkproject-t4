@@ -1,13 +1,19 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . "/../include/functions/templates.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/../include/functions/users.php";
+
 headerTemplate("Home");
+
 ?>
+
+
 
 <main>
   <section id="banner">
     <h1 class="text-xl underline">
       Welkom bij KW1C horeca
     </h1>
+    <!-- Onderstaande text is AI-generated paginavulling. -->
     <p>
       De plek voor een hapje en een drankje.
     </p>

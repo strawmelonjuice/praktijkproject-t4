@@ -1,13 +1,14 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . "/../include/db_config.php";
+
 // Ik zou de conn returnen, maar ik volg nu het voorbeeld, conn global
-function databaseGetConn($database): void
+function databaseGetConn($database = "horeca"): void
 {
     global $conn;
 
-    $host = $db_host;
-    $username = $db_username;
-    $password = $db_password;
+    $host = db_config["db_host"];
+    $username = db_config["db_username"];
+    $password = db_config["db_password"];
 
     $conn = new mysqli($host, $username, $password, $database);
 
@@ -55,3 +56,4 @@ function executeUpdateQuery($sql)
         return null;
     }
 }
+

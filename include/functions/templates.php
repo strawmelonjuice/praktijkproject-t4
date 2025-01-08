@@ -1,6 +1,16 @@
 <?php
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+
 function headerTemplate($title, $scripts = [])
 {
+    $lock = "🔒";
+if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] && isset($_SESSION["studentNumber"])) {
+    $lock = "🔓";
+}
     ?>
     <!doctype html>
     <html lang="en">
@@ -19,8 +29,12 @@ function headerTemplate($title, $scripts = [])
                 <div class="bg-dthb-2 p-[6px] top-0  absolute left-[5vw] max-w-[20VW] w-52 h-12 mt-[2px] rounded-l-full rounded-r-full overflow-clip">
                     <img src="https://mportaal.kw1c.nl/img/KW1C_App$Images$kw1c_logo_60x60.png?638718728506942381" class="max-w-[8vw] max-h-10 inline-block p-1" />
                     <span class="w-40 inline">KW1C Horeca</span>
-                </div> <?php navLink(name: "Home", url: "/"); ?>
-                <?php navLink(name: "Reserveringen 🔒", url: "/inside"); ?>
+                </div> <?php navLink(name: "Home", url: "/"); 
+                 navLink(name: "Reserveringen $lock", url: "/inside"); 
+                 if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] && isset($_SESSION["studentNumber"])) {
+                     navLink(name: "Uitloggen", url: "/logout.php");
+                 }
+                 ?>
             </nav>
 
             <!-- <nav id="side-nav">
@@ -36,8 +50,8 @@ function headerTemplate($title, $scripts = [])
 function footerTemplate()
 {
     echo <<<EOT
-<footer>
-    <p>&copy; 2021 DierenZiekenHuis Den Bosch</p>
+<footer class="bg-dthb-1 text-dthb-2 text-center p-2 absolute bottom-0 w-full">	
+    <p>&copy; 2025 KW1C Horeca</p>
 </footer>
 </body>
 </html>
