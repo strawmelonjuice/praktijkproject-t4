@@ -20,7 +20,7 @@ function headerTemplate($title, $scripts = [])
         <meta name="theme-color" content="#0085ca" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="/styles.css" rel="stylesheet" />
-        <title><?php echo $title; ?>&ensp;&ndash;&ensp;DierenZiekenHuis Den Bosch</title>
+        <title><?php echo $title; ?>&ensp;&ndash;&ensp;KW1C Horeca</title>
         <?php foreach ($scripts as $script) {
             echo "<script src='$script'></script>";
         } ?>
