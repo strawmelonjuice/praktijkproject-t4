@@ -5,7 +5,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 
-function headerTemplate($title, $scripts = [])
+function headerTemplate($title, $scripts = []): void
 {
     $lock = "🔒";
     if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] && isset($_SESSION["studentNumber"])) {
@@ -30,7 +30,7 @@ function headerTemplate($title, $scripts = [])
         <nav class="top-0 overflow-hidden m-0 h-14 bg-dthb-1">
             <!--<span id="side-menu-opener">☰</span>-->
             <div class="bg-dthb-2 p-[6px] top-0  absolute left-[5vw] max-w-[20VW] w-52 h-12 mt-[2px] rounded-l-full rounded-r-full overflow-clip">
-                <img src="/logo.png" class="max-w-[8vw] max-h-10 inline-block p-1" />
+                <img src="/logo.png" class="max-w-[8vw] max-h-10 inline-block p-1" alt=""/>
                 <span class="w-40 inline">KW1C Horeca</span>
             </div> <?php navLink(name: "Home", url: "/");
                     navLink(name: "Reserveringen $lock", url: "/home");
@@ -44,7 +44,7 @@ function headerTemplate($title, $scripts = [])
     <?php
 }
 
-function footerTemplate()
+function footerTemplate(): void
 {
     echo <<<EOT
     <div class="h-10"></div>
@@ -57,7 +57,7 @@ function footerTemplate()
 EOT;
 }
 
-function navLink($name, $url)
+function navLink($name, $url): void
 {
     $current = "";
     if ($url === $_SERVER["REQUEST_URI"]) {

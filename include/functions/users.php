@@ -1,5 +1,6 @@
 <?php
 
+/** @noinspection PhpIncludeInspection */
 require_once $_SERVER["DOCUMENT_ROOT"] . "/../include/functions/database.php";
 
 class userMan
@@ -16,7 +17,7 @@ if (session_status() == PHP_SESSION_NONE) {
     function getUserByUsername($username)
     {
         global $conn;
-        databaseGetConn("horeca");
+        databaseGetConn();
 
         $username = $conn->real_escape_string($username);
         $sql = "SELECT * FROM user WHERE user_name = '$username'";
@@ -35,9 +36,8 @@ if (session_status() == PHP_SESSION_NONE) {
     public static function GetUserByStudentNumber(int $studentNumber): array
     {
         global $conn;
-        databaseGetConn("horeca");
+        databaseGetConn();
 
-        $username = $conn->real_escape_string($studentNumber);
         $sql = "SELECT * FROM user WHERE student_nr = '$studentNumber'";
 
         $result = $conn->query($sql);

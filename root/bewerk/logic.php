@@ -1,5 +1,7 @@
 <?php
+/** @noinspection PhpIncludeInspection */
 require_once $_SERVER["DOCUMENT_ROOT"] . "/../include/functions/database.php";
+/** @noinspection PhpIncludeInspection */
 require_once $_SERVER["DOCUMENT_ROOT"] . "/../include/functions/users.php";
 
 $userManagement = new userMan();
@@ -13,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $end = $_POST['end'];
 
     global $conn;
-    databaseGetConn("horeca");
+    databaseGetConn();
 
     $sql = "UPDATE diner SET location = ?, description = ?, start = ?, end = ? WHERE dinner_id = ?";
     $stmt = $conn->prepare($sql);
@@ -30,4 +32,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     echo "Invalid request method.";
 }
-?>

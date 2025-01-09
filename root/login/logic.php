@@ -1,5 +1,6 @@
 <?php
 
+/** @noinspection PhpIncludeInspection */
 require_once $_SERVER["DOCUMENT_ROOT"] . "/../include/functions/users.php";
 $userManagement = new userMan();
 
@@ -14,10 +15,9 @@ if ($account["found"]) {
         $_SESSION["studentNumber"] = $account["student_nr"];
         $_SESSION["loggedIn"] = true;
         header("location: /home");
-        exit();
     } else {
         header("location: /login#incorrect_password");
-        exit();
     }
+    exit();
 }
 header("location: /login#incorrect_username");

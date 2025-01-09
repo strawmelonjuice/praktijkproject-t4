@@ -1,5 +1,6 @@
 <?php
 // Pagina waarop ingelogd moet worden.
+/** @noinspection PhpIncludeInspection */
 require_once $_SERVER["DOCUMENT_ROOT"] . "/../include/functions/templates.php";
 headerTemplate("Log in", ["/login/handling.js"]);
 ?>

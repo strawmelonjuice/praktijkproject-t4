@@ -1,5 +1,7 @@
 <?php
+/** @noinspection PhpIncludeInspection */
 require_once $_SERVER["DOCUMENT_ROOT"] . "/../include/functions/templates.php";
+/** @noinspection PhpIncludeInspection */
 require_once $_SERVER["DOCUMENT_ROOT"] . "/../include/functions/users.php";
 
 headerTemplate("Home");

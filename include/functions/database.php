@@ -1,4 +1,5 @@
 <?php
+/** @noinspection PhpIncludeInspection */
 require_once $_SERVER["DOCUMENT_ROOT"] . "/../include/db_config.php";
 
 // Ik zou de conn returnen, maar ik volg nu het voorbeeld, conn global

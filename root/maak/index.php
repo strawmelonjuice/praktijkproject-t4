@@ -1,13 +1,15 @@
 <?php
 // Maak een nieuwe afspraak, en stuur de gebruiker dan meteen door naar bewerker.
+/** @noinspection PhpIncludeInspection */
 require_once $_SERVER["DOCUMENT_ROOT"] . "/../include/functions/database.php";
+/** @noinspection PhpIncludeInspection */
 require_once $_SERVER["DOCUMENT_ROOT"] . "/../include/functions/users.php";
 
 $userManagement = new userMan();
 $userManagement->EnsureUserIsLoggedIn();
 
 global $conn;
-databaseGetConn("horeca");
+databaseGetConn();
 $sql = "INSERT INTO diner (location, description, start, end) VALUES (NULL, NULL, NULL, NULL);";
 $result = $conn->query($sql);
 // Return autoincrement werkte niet goed

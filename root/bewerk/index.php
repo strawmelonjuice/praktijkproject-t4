@@ -1,6 +1,8 @@
 <?php
 $edited_id = $_GET["dinnerid"];
+/** @noinspection PhpIncludeInspection */
 require_once $_SERVER["DOCUMENT_ROOT"] . "/../include/functions/users.php";
+/** @noinspection PhpIncludeInspection */
 require_once $_SERVER["DOCUMENT_ROOT"] . "/../include/functions/templates.php";
 
 $userManagement = new userMan();
@@ -11,7 +13,7 @@ headerTemplate("Bewerken");
     <div>
         <?php
         global $conn;
-        databaseGetConn("horeca");
+        databaseGetConn();
         $sql = "SELECT * FROM diner WHERE dinner_id = '$edited_id'";
 
         $result = $conn->query($sql);
