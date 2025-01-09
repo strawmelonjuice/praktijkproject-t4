@@ -1,4 +1,20 @@
 -- Naar MySQL geconverteerd.
+CREATE DATABASE IF NOT EXISTS horeca;
+USE horeca;
+DROP TABLE IF EXISTS `diner`;
+CREATE TABLE `diner` (
+  `dinner_id` int(11) NOT NULL,
+  `description` varchar(40) DEFAULT NULL,
+  `start` datetime DEFAULT NULL,
+  `end` datetime DEFAULT NULL,
+  `location` varchar(40) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `diner` (`dinner_id`, `description`, `start`, `end`, `location`) VALUES
+(1, 'ZomerBrunch', '2021-06-03 10:00:00', '2021-06-03 17:00:00', 'Binnenplaats Vlijmense weg'),
+(2, 'Heerboeren diner', '2021-06-04 13:00:00', '2021-06-04 16:00:00', 'Ons restaurant'),
+(3, 'All you can eat - Frikandellenbroodjes', '2021-06-05 09:00:00', '2021-06-05 17:00:00', 'Studentenkantine');
+
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `user_name` varchar(30) NOT NULL,
@@ -19,7 +35,13 @@ INSERT INTO `user` (`user_name`, `password`, `student_nr`) VALUES
 ('SiebrenBreukers', 'welkom123', '93561432');
 
 
+ALTER TABLE `diner`
+  ADD PRIMARY KEY (`dinner_id`);
+
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_name`),
   ADD UNIQUE KEY `student_nr` (`student_nr`);
-COMMIT;
+
+
+ALTER TABLE `diner`
+  MODIFY `dinner_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
