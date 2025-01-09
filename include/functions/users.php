@@ -14,7 +14,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
     }
 
-    function getUserByUsername($username)
+    public static function getUserByUsername($username)
     {
         global $conn;
         databaseGetConn();
