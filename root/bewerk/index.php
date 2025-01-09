@@ -9,7 +9,7 @@ $userManagement = new userMan();
 $userManagement->EnsureUserIsLoggedIn();
 headerTemplate("Bewerken");
 ?>
-<main>
+    <main>
     <div>
         <?php
         global $conn;
@@ -43,5 +43,5 @@ headerTemplate("Bewerken");
 
         ?>
     </div>
-    <?php footerTemplate();
-    ?>
+<?php footerTemplate();
+?>
