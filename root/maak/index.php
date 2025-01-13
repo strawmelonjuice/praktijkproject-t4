@@ -19,7 +19,7 @@ $result = $conn->query($sql);
 if ($result && $result->num_rows > 0) {
     $row = $result->fetch_assoc();
     echo "U wordt nu doorgestuurd naar: /bewerk/?dinnerid=" . $row["dinner_id"];
-    header("Location: /bewerk/?dinnerid=" . $row["dinner_id"]);
+    header("Location: /bewerk/?dinnerid=" . $row["dinner_id"]."&newdinner=true");
 } else {
     die("Er was een issue bij het aanmaken van deze reservering.");
 }

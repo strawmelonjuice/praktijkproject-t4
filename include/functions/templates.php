@@ -36,6 +36,8 @@ function headerTemplate($title, $scripts = []): void
                     navLink(name: "Reserveringen $lock", url: "/home");
                     if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] && isset($_SESSION["studentNumber"])) {
                         navLink(name: "Uitloggen", url: "/logout.php");
+                    } else {
+                        navLink(name: "Inloggen", url: "/login");
                     }
                     ?>
         </nav>
@@ -61,7 +63,7 @@ function navLink($name, $url): void
 {
     $current = "";
     if ($url === $_SERVER["REQUEST_URI"]) {
-        $current = "current";
+        $current = "bg-red-400 text-black";
     }
     ?>
         <a href="<?php echo $url; ?>" class="hover:bg-dthb-2 hover:text-black m-0 float-right text-dthb-2 bg-dthb-1 text-center justify-center text-sm align-middle py-3.5 px-4 rounded-0 p-0 h-full <?php echo $current; ?>"><?php echo $name; ?></a>

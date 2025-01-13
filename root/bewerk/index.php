@@ -1,5 +1,6 @@
 <?php
 $edited_id = $_GET["dinnerid"];
+$new_diner = (isset($_GET["newdinner"]) && $_GET["newdinner"] == "true");
 /** @noinspection PhpIncludeInspection */
 require_once $_SERVER["DOCUMENT_ROOT"] . "/../include/functions/users.php";
 /** @noinspection PhpIncludeInspection */
@@ -22,6 +23,7 @@ headerTemplate("Bewerken");
             echo '<form action="/bewerk/logic.php" method="post" class="p-2 m-2">';
             echo '<div class="border p-2 m-2">';
             echo '<input type="hidden" name="dinner_id" value="' . $row['dinner_id'] . '">';
+            echo '<input type="hidden" name="new_dinner" value="' . $new_diner . '">';
             echo '<label for="name">Locatie: </label><br>';
             echo '<input class="border-gray-700 p-1 border w-full" type="text" id="location" name="location" value="' . $row['location'] . '"><br>';
             echo '<label for="description">Omschrijving:</label><br>';

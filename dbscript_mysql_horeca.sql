@@ -4,10 +4,11 @@ USE horeca;
 DROP TABLE IF EXISTS `diner`;
 CREATE TABLE `diner` (
   `dinner_id` int(11) NOT NULL,
-  `description` varchar(40) DEFAULT NULL,
+  `description` varchar(250) DEFAULT NULL,
   `start` datetime DEFAULT NULL,
   `end` datetime DEFAULT NULL,
-  `location` varchar(40) DEFAULT NULL
+  `location` varchar(40) DEFAULT NULL,
+  `image` varchar(150) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `diner` (`dinner_id`, `description`, `start`, `end`, `location`) VALUES
