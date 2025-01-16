@@ -7,10 +7,10 @@ class userMan
 {
     public function __construct()
     {
-        
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
 
     }
 
@@ -33,6 +33,16 @@ if (session_status() == PHP_SESSION_NONE) {
         }
     }
 
+    public static function GetUserByStudentNumberOrDie(int $studentNumber): array
+    {
+        $user = self::GetUserByStudentNumber($studentNumber);
+        if (!$user["found"]) {
+            die("ERROR: USER NOT FOUND");
+        }
+        $user["found"] = null;
+        return $user;
+    }
+
     public static function GetUserByStudentNumber(int $studentNumber): array
     {
         global $conn;
@@ -49,16 +59,6 @@ if (session_status() == PHP_SESSION_NONE) {
         } else {
             return ["found" => false];
         }
-    }
-
-    public static function GetUserByStudentNumberOrDie(int $studentNumber): array
-    {
-        $user = self::GetUserByStudentNumber($studentNumber);
-        if (!$user["found"]) {
-            die("ERROR: USER NOT FOUND");
-        }
-        $user["found"] = null;
-        return $user;
     }
 
     public static function EnsureUserIsLoggedIn(): void

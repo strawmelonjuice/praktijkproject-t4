@@ -6,19 +6,17 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/../include/functions/templates.php";
 
 $userManagement = new userMan();
 $userManagement->EnsureUserIsLoggedIn();
-headerTemplate("Reserveringenbestand", ["/home/index.js"]);
+
+$search_query = $_GET["q"];
+
+headerTemplate("Reserveringenbestand: ". $search_query, ["/home/index.js"]);
 ?>
 <main>
     <div>
-        <form class="mt-1 text-black text-lg border-0  rounded-none mb-3 text-right"
-             id="search" action="/search" method="get">
-            <input type="text" name="q" class="border border-solid border-gray-300 p-1 m-1" placeholder="Zoeken">
-            <button type="submit" class="border border-solid border-gray-300 p-1 m-1">Zoeken</button>
-        </form>
         <div class="mt-1 text-black text-lg border-r-0 border-l-0 border-t-2 border-b-2 border-sky-800 bg-neutral-300 rounded-none text-center mb-3"
-             id="notes">
+             id="searchr">
             <p>
-                No notes 💯
+                Zoeken: <?php echo $search_query; ?> <a href="/home" class="text-sky-800 underline">Terug naar overzicht</a>
             </p>
         </div>
         <div class="text-right">
@@ -27,11 +25,7 @@ headerTemplate("Reserveringenbestand", ["/home/index.js"]);
         <?php
         global $conn;
         databaseGetConn();
-        $viewArchive = "AND `end` > NOW()";
-        if (isset($_GET["viewArchive"]) && $_GET["viewArchive"] == "true") {
-            $viewArchive = "";
-        }
-        $sql = "SELECT * FROM diner WHERE `description` IS NOT NULL " . $viewArchive . " ORDER BY `start` DESC;";
+        $sql = "SELECT * FROM diner WHERE location LIKE '%".$search_query."%' OR description LIKE '%".$search_query."%' AND `end` > NOW()";
 
         $results = $conn->query($sql);
         if ($results && $results->num_rows > 0) {
@@ -52,11 +46,7 @@ headerTemplate("Reserveringenbestand", ["/home/index.js"]);
         } else {
             echo "Geen dinners gepland.";
         }
-        if (isset($_GET["viewArchive"]) && $_GET["viewArchive"] == "true") {
-            echo "<p class=' p-3 m-3 text-center'>Gearchiveerde afspraken worden getoond. <a href='/home/?viewArchive=false' class='text-blue-400 border border-solid border-gray-300 p-2 m-2'>Uitschakelen</a></p>";
-        } else {
-            echo "<p class=' p-3 m-3 text-center'>Oudere afspraken zijn gearchiveerd. <a href='/home/?viewArchive=true' class='text-blue-400 border border-solid border-gray-300 p-2 m-2'>Met archief tonen</a></p>";
-        }
+       
         ?>
     </div>
     <?php footerTemplate();

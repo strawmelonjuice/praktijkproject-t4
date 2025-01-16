@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $description = $_POST['description'];
     $start = $_POST['start'];
     $end = $_POST['end'];
-$new = $_POST['new_dinner'];
+    $new = $_POST['new_dinner'];
 
     $sql = "UPDATE diner SET location = ?, description = ?, start = ?, end = ? WHERE dinner_id = ?";
     $stmt = $conn->prepare($sql);

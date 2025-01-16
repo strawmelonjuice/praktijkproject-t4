@@ -10,9 +10,18 @@ window.addEventListener("DOMContentLoaded", (_) => {
             document.getElementById("error").classList.remove("hidden");
         }
             break;
+        case "#not_logged_in_yet": {
+            document.getElementById("error").innerHTML =
+                "U dient in te loggen om deze pagina te bekijken.";
+            document.getElementById("error").classList =
+                "text-orange-600 text-lg border-2 border-sky-800 bg-neutral-200 rounded-lg text-center mb-3";
+        }
+            break;
         case "#logged_out": {
-            document.getElementById("error").innerHTML = "U bent succesvol uitgelogd!";
-            document.getElementById("error").classList = "text-green-600 text-lg border-2 border-sky-900 bg-neutral-500 rounded-lg text-center mb-3";
+            document.getElementById("error").innerHTML =
+                "U bent succesvol uitgelogd!";
+            document.getElementById("error").classList =
+                "text-green-600 text-lg border-2 border-sky-900 bg-neutral-500 rounded-lg text-center mb-3";
         }
             break;
         default: {
