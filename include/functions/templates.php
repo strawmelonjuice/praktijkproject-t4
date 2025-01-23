@@ -29,9 +29,9 @@ function headerTemplate($title, $scripts = []): void
     <body>
     <nav class="top-0 overflow-hidden m-0 h-14 bg-dthb-1">
         <!--<span id="side-menu-opener">☰</span>-->
-        <div class="bg-dthb-2 p-[6px] top-0  absolute left-[5vw] max-w-[20VW] w-52 h-12 mt-[2px] rounded-l-full rounded-r-full overflow-clip">
+        <div class="bg-dthb-2 p-[6px] top-0  absolute left-[5vw] max-w-[20VW] w-fit md:w-52 h-12 mt-[2px] rounded-l-full rounded-r-full overflow-clip">
             <img src="/logo.png" class="max-w-[8vw] max-h-10 inline-block p-1" alt=""/>
-            <span class="w-40 inline">KW1C Horeca</span>
+            <span class="w-0 md:w-40 hidden md:inline">KW1C Horeca</span>
         </div> <?php navLink(name: "Home", url: "/");
         navLink(name: "Reserveringen $lock", url: "/home");
         if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] && isset($_SESSION["studentNumber"])) {
